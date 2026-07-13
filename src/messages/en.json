@@ -1,0 +1,22 @@
+{
+  "navbar": {
+    "brand": "e-Comm",
+    "deliver": "deliver to this address",
+    "searchPlaceholder": "Search for products...",
+    "all": "All",
+    "localization": "Localization",
+    "profile": "NavProfile",
+    "cart": "NavCart"
+  },
+  "home": {
+    "title": "To get started, edit the page.tsx file",
+    "description": "Looking for a starting point or more instructions? Head over to Templates or the Learning center.",
+    "deploy": "Deploy Now",
+    "documentation": "Documentation"
+  },
+  "pinCode": {
+    "deliver": "Deliver to this address",
+    "placeholder": "Type your pincode",
+    "title": "Set Your Pincode"
+  }
+}

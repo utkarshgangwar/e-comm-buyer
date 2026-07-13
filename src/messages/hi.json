@@ -1,0 +1,22 @@
+{
+  "navbar": {
+    "brand": "ई-कॉम",
+    "deliver": "इस पते पर डिलीवरी करें",
+    "searchPlaceholder": "उत्पाद खोजें...",
+    "all": "सभी",
+    "localization": "भाषा",
+    "profile": "प्रोफाइल",
+    "cart": "कार्ट"
+  },
+  "home": {
+    "title": "शुरू करने के लिए page.tsx फ़ाइल को संपादित करें",
+    "description": "शुरुआत करने या अधिक जानकारी के लिए Templates या Learning center पर जाएं।",
+    "deploy": "डिप्लॉय करें",
+    "documentation": "दस्तावेज़"
+  },
+  "pinCode": {
+    "deliver": "इस पते पर डिलीवरी करें",
+    "placeholder": "अपना पिनकोड दर्ज करें",
+    "title": "अपना पिनकोड सेट करें"
+  }
+}
