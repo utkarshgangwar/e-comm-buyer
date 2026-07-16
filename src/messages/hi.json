@@ -6,17 +6,71 @@
     "all": "सभी",
     "localization": "भाषा",
     "profile": "प्रोफाइल",
-    "cart": "कार्ट"
+    "cart": "कार्ट",
+    "categories": {
+      "all": "सभी",
+      "electronics": "इलेक्ट्रॉनिक्स",
+      "fashion": "फैशन",
+      "lifestyle": "लाइफस्टाइल",
+      "fitness": "फिटनेस",
+      "kids": "बच्चों के लिए",
+      "men": "पुरुष",
+      "women": "महिलाएं",
+      "sports": "खेलकूद",
+      "books": "किताबें"
+    }
   },
   "home": {
-    "title": "शुरू करने के लिए page.tsx फ़ाइल को संपादित करें",
-    "description": "शुरुआत करने या अधिक जानकारी के लिए Templates या Learning center पर जाएं।",
-    "deploy": "डिप्लॉय करें",
-    "documentation": "दस्तावेज़"
+    "wishlist": "इच्छासूची",
+    "recentlyViewed": "हाल ही में देखे गए",
+    "deals": "शानदार डील्स",
+    "becauseYouBought": "आपकी पिछली खरीदारी के आधार पर",
+    "trendingSportsGear": "ट्रेंडिंग स्पोर्ट्स गियर",
+    "newArrivals": "नए उत्पाद",
+    "lifestyle": "लाइफस्टाइल",
+    "electronics": "इलेक्ट्रॉनिक्स",
+    "fitness": "फिटनेस",
+    "home": "होम",
+    "books": "किताबें",
+    "yourBrowsingHistory": "आपका ब्राउज़िंग इतिहास"
   },
   "pinCode": {
     "deliver": "इस पते पर डिलीवरी करें",
     "placeholder": "अपना पिनकोड दर्ज करें",
-    "title": "अपना पिनकोड सेट करें"
+    "title": "अपना पिनकोड सेट करें",
+    "save": "सेट करें"
+  },
+  "footer": {
+    "description": "उच्च गुणवत्ता वाले खेल गियर, फिटनेस उपकरण और एक्टिव वियर के लिए आपका पसंदीदा गंतव्य। एथलीटों के लिए डिज़ाइन किया गया, सभी के लिए निर्मित।",
+    "shopHeading": "शॉप",
+    "supportHeading": "सहायता",
+    "stayTunedHeading": "जुड़े रहें",
+    "newsletterText": "विशेष ऑफ़र, मुफ़्त उपहार और बेहतरीन डील्स पाने के लिए सब्सक्राइब करें।",
+    "emailPlaceholder": "ईमेल दर्ज करें",
+    "joinButton": "जुड़ें",
+    "rightsReserved": "सर्वाधिकार सुरक्षित।",
+    "privacyPolicy": "गोपनीयता नीति",
+    "termsOfService": "सेवा की शर्तें",
+    "sitemap": "साइटमैप",
+    "links": {
+      "fitness": "फिटनेस और जिम",
+      "apparel": "स्पोर्ट्स कपड़े",
+      "footwear": "जूते-चप्पल",
+      "accessories": "एक्सेसरीज",
+      "trackOrder": "ऑर्डर ट्रैक करें",
+      "returns": "रिटर्न और रिफंड",
+      "shipping": "शिपिंग की जानकारी",
+      "contact": "संपर्क करें"
+    }
+  },
+  "profileDropdown": {
+    "accountHeading": "खाता",
+    "guestUser": "अतिथि उपयोगकर्ता",
+    "myProfile": "मेरी प्रोफ़ाइल",
+    "orderHistory": "ऑर्डर का इतिहास",
+    "contactSupport": "सहायता केंद्र",
+    "signOut": "अकाउंट लॉग आउट करें",
+    "signInRegister": "लॉग इन / रजिस्ट्रेशन",
+    "logoutAlert": "सफलतापूर्वक लॉग आउट हो गया!"
   }
 }

@@ -2,6 +2,7 @@
 
 import React, { useRef } from "react";
 import ProductCard, { ProductData } from "../ProductCard/ProductCard";
+import { useTranslations } from "next-intl";
 
 type Props = {
   heading?: string;
@@ -22,6 +23,7 @@ const Carousel = ({
   cardPaddingClass = "p-2.5",
   plainImages = false,
 }: Props) => {
+  const t = useTranslations("home");
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   const scroll = (direction: "left" | "right") => {
@@ -43,7 +45,7 @@ const Carousel = ({
     <div className="w-full max-w-8xl mx-auto py-4 relative group/carousel">
       {heading && (
         <h2 className="text-xl font-bold text-gray-900 mb-4 tracking-tight">
-          {heading}
+          {t(heading)}
         </h2>
       )}
 

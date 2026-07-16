@@ -41,14 +41,13 @@ const Notification = () => {
   const handleTogglePanel = () => {
     setIsOpen(!isOpen);
     if (!isOpen) {
-      // Smoothly mark everything as read once opened
       setNotifications((prev) => prev.map((n) => ({ ...n, isUnread: false })));
     }
   };
 
   return (
     <>
-      {/*  1. BACKGROUND OVERLAY & BLUR (Only rendered when open) */}
+      {/* BACKGROUND OVERLAY & BLUR */}
       {isOpen && (
         <div
           onClick={() => setIsOpen(false)}
@@ -80,7 +79,8 @@ const Notification = () => {
 
         {/* Notification Dropdown Panel */}
         {isOpen && (
-          <div className="absolute right-0 mt-3 w-80 sm:w-96 bg-white rounded-2xl border border-gray-200/80 shadow-2xl overflow-hidden animate-in fade-in slide-in-from-top-4 duration-200 origin-top-right">
+          /* 💡 FIX: Replaced absolute positioning anomalies with viewport-fixed layouts for flawless mobile rendering */
+          <div className="fixed inset-x-4 top-16 mx-auto w-auto max-w-md sm:absolute sm:inset-x-auto sm:right-0 sm:top-full sm:mt-3 sm:w-96 sm:max-w-none bg-white rounded-2xl border border-gray-200/80 shadow-2xl overflow-hidden animate-in fade-in slide-in-from-top-4 duration-200 origin-top">
             {/* Header */}
             <div className="px-4 py-3.5 border-b border-gray-100 flex items-center justify-between bg-gray-50/70">
               <h3 className="text-sm font-bold text-gray-900">Notifications</h3>
@@ -103,7 +103,6 @@ const Notification = () => {
                     key={n.id}
                     className="px-5 py-4 hover:bg-gray-50/80 transition-all flex gap-3 items-start cursor-pointer group"
                   >
-                    {/* Visual state marker indicator */}
                     <div className="mt-1.5 relative flex-shrink-0">
                       <span
                         className={`block h-2 w-2 rounded-full transition-transform group-hover:scale-125 ${
@@ -112,7 +111,6 @@ const Notification = () => {
                       />
                     </div>
 
-                    {/* Context texts */}
                     <div className="flex-1 space-y-1">
                       <p className="text-xs text-gray-700 leading-relaxed font-medium group-hover:text-gray-900 transition-colors">
                         {n.message}

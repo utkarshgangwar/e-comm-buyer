@@ -5,13 +5,15 @@ import { Link } from "../../i18n/routing";
 import { useAppDispatch, useAppSelector } from "../../lib/store/hooks";
 import { logout } from "../../lib/store/features/authSlice";
 import { LuUser } from "../../constants/Icons";
-import AuthModal from "@/src/components/AuthModal/AuthModal"; //  1. Import your AuthModal component
+import AuthModal from "@/src/components/AuthModal/AuthModal";
+import { useTranslations } from "next-intl";
 
 type Props = {};
 
 const NavProfile = (props: Props) => {
+  const t = useTranslations("profileDropdown");
   const [isOpen, setIsOpen] = useState(false);
-  const [showAuthModal, setShowAuthModal] = useState(false); //  2. Add local state to control the modal visibility
+  const [showAuthModal, setShowAuthModal] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const dispatch = useAppDispatch();
@@ -34,7 +36,7 @@ const NavProfile = (props: Props) => {
   const handleLogout = () => {
     setIsOpen(false);
     dispatch(logout());
-    alert("Logged out successfully!");
+    alert(t("logoutAlert"));
   };
 
   return (
@@ -68,10 +70,10 @@ const NavProfile = (props: Props) => {
             {/* Authenticated Context greeting */}
             <div className="px-3 py-2 bg-gray-50/70 rounded-t-xl mb-1 border-b border-gray-100">
               <span className="block text-[10px] font-black text-gray-400 uppercase tracking-widest">
-                Account
+                {t("accountHeading")}
               </span>
               <span className="block text-xs font-bold text-gray-800 truncate mt-0.5">
-                {isAuthenticated ? user?.name : "Guest User"}
+                {isAuthenticated ? user?.name : t("guestUser")}
               </span>
             </div>
 
@@ -82,16 +84,16 @@ const NavProfile = (props: Props) => {
                 onClick={() => setIsOpen(false)}
                 className="flex w-full items-center px-3 py-2 rounded-xl text-left text-xs font-bold text-gray-700 hover:bg-gray-50 hover:text-gray-950 transition-colors"
               >
-                My Profile
+                {t("myProfile")}
               </Link>
 
-              {/* Order History link target mapping directly into profile orders view */}
+              {/* Order History link */}
               <Link
                 href="/profile"
                 onClick={() => setIsOpen(false)}
                 className="flex w-full items-center px-3 py-2 rounded-xl text-left text-xs font-bold text-gray-700 hover:bg-gray-50 hover:text-gray-950 transition-colors"
               >
-                Order History
+                {t("orderHistory")}
               </Link>
 
               {/* Contact Route */}
@@ -100,7 +102,7 @@ const NavProfile = (props: Props) => {
                 onClick={() => setIsOpen(false)}
                 className="flex w-full items-center px-3 py-2 rounded-xl text-left text-xs font-bold text-gray-700 hover:bg-gray-50 hover:text-gray-950 transition-colors"
               >
-                Contact Support
+                {t("contactSupport")}
               </Link>
 
               <hr className="border-gray-100 my-1" />
@@ -112,10 +114,9 @@ const NavProfile = (props: Props) => {
                   onClick={handleLogout}
                   className="cursor-pointer flex w-full items-center px-3 py-2 rounded-xl text-left text-xs font-bold text-red-600 hover:bg-red-50 transition-colors"
                 >
-                  Sign Out Account
+                  {t("signOut")}
                 </button>
               ) : (
-                /*  3. Swapped static link for an interactive modal trigger action */
                 <button
                   type="button"
                   onClick={() => {
@@ -124,7 +125,7 @@ const NavProfile = (props: Props) => {
                   }}
                   className="cursor-pointer flex w-full items-center px-3 py-2 rounded-xl text-left text-xs font-bold text-green-600 hover:bg-green-50 transition-colors"
                 >
-                  Sign In / Register
+                  {t("signInRegister")}
                 </button>
               )}
             </div>
@@ -132,7 +133,7 @@ const NavProfile = (props: Props) => {
         )}
       </div>
 
-      {/*  4. Universal AuthModal integration hook */}
+      {/* Universal AuthModal integration hook */}
       <AuthModal
         isOpen={showAuthModal}
         onClose={() => setShowAuthModal(false)}

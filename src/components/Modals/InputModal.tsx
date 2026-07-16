@@ -34,11 +34,11 @@ const InputModal = ({ isOpen, onClose, title, children }: Props) => {
           </button>
         </div>
         <div className="mt-4">{children}</div>
-        <div className="flex items-center border-t pb-3 text-center">
+        {/* <div className="flex items-center border-t pb-3 text-center">
           <button onClick={onClose} className="cursor-pointer">
             Save
           </button>
-        </div>
+        </div> */}
       </div>
     </div>
   );

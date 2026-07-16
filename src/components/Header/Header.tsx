@@ -10,10 +10,12 @@ import Navbar from "../Navbar/Navbar";
 import { RiExchange2Line } from "../../constants/Icons";
 import Link from "next/link";
 import Notification from "../Notification/Notification";
+import { useTranslations } from "next-intl";
 
 type Props = {};
 
 const Header = (props: Props) => {
+  const t = useTranslations("navbar");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
@@ -27,7 +29,7 @@ const Header = (props: Props) => {
             <Link href={"/"} className="shrink-0">
               <div className="flex items-center gap-2 font-bold text-gray-900">
                 <RiExchange2Line className="text-xl" />
-                <span>e-Comm</span>
+                <span>{t("brand")}</span>
               </div>
             </Link>
 

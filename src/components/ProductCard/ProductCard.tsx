@@ -1,9 +1,9 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "../../i18n/routing";
 import { useAppDispatch } from "../../lib/store/hooks";
-import { addToCart } from "../../lib/store/features/cartSlice"; // Explicit path fixed
+import { addToCart } from "../../lib/store/features/cartSlice";
 
 export interface ProductData {
   id: string | number;
@@ -29,8 +29,11 @@ const ProductCard = ({
 }: ProductCardProps) => {
   const dispatch = useAppDispatch();
 
+  // State to track if the network image asset has finished loading
+  const [isImageLoaded, setIsImageLoaded] = useState(false);
+
   const handleAddToCart = (e: React.MouseEvent) => {
-    e.preventDefault(); //  Prevents the parent <Link> navigation when clicking 'Add'
+    e.preventDefault();
     dispatch(
       addToCart({
         id: item.id,
@@ -40,7 +43,6 @@ const ProductCard = ({
     );
   };
 
-  //  Construct the query param object safely
   const queryParams = new URLSearchParams({
     id: String(item.id),
     title: item.title || "",
@@ -61,10 +63,22 @@ const ProductCard = ({
       <div
         className={`w-full bg-gray-50 rounded-lg overflow-hidden relative border border-gray-100 ${aspectRatioClass}`}
       >
+        {/* WAVE SKELETON: Rendered while the asset is loading */}
+        {!isImageLoaded && (
+          <div className="absolute inset-0 bg-gray-200 animate-pulse flex items-center justify-center">
+            {/* Subtle inner shimmer/wave container */}
+            <div className="w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent bg-[length:200%_100%] animate-[shimmer_1.5s_infinite]" />
+          </div>
+        )}
+
         <img
           src={item.image}
           alt={item.title || "Product item"}
-          className="block h-full w-full object-cover group-hover:scale-[1.02] transition-transform duration-300 ease-out"
+          // Smoothly transition opacity from 0 to 100 once loaded
+          className={`block h-full w-full object-cover group-hover:scale-[1.02] transition-all duration-300 ease-out ${
+            isImageLoaded ? "opacity-100 scale-100" : "opacity-0 scale-95"
+          }`}
+          onLoad={() => setIsImageLoaded(true)}
         />
       </div>
 
@@ -96,4 +110,4 @@ const ProductCard = ({
   );
 };
 
-export default ProductCard;
+export default React.memo(ProductCard);

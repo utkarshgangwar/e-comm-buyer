@@ -6,17 +6,71 @@
     "all": "All",
     "localization": "Localization",
     "profile": "NavProfile",
-    "cart": "NavCart"
+    "cart": "NavCart",
+    "categories": {
+      "all": "All",
+      "electronics": "Electronics",
+      "fashion": "Fashion",
+      "lifestyle": "Lifestyle",
+      "fitness": "Fitness",
+      "kids": "Kids",
+      "men": "Men",
+      "women": "Women",
+      "sports": "Sports",
+      "books": "Books"
+    }
   },
   "home": {
-    "title": "To get started, edit the page.tsx file",
-    "description": "Looking for a starting point or more instructions? Head over to Templates or the Learning center.",
-    "deploy": "Deploy Now",
-    "documentation": "Documentation"
+    "wishlist": "Wishlist",
+    "recentlyViewed": "Recently Viewed",
+    "deals": "Deals",
+    "becauseYouBought": "Because You Bought",
+    "trendingSportsGear": "Trending Sports Gear",
+    "newArrivals": "New Arrivals",
+    "lifestyle": "Lifestyle",
+    "electronics": "Electronics",
+    "fitness": "Fitness",
+    "home": "Home",
+    "books": "Books",
+    "yourBrowsingHistory": "Your Browsing History"
   },
   "pinCode": {
     "deliver": "Deliver to this address",
     "placeholder": "Type your pincode",
-    "title": "Set Your Pincode"
+    "title": "Set Your Pincode",
+    "save": "Save"
+  },
+  "footer": {
+    "description": "Your premium destination for high-quality sports gear, fitness equipment, and active apparel. Engineered for athletes, built for everyone.",
+    "shopHeading": "Shop",
+    "supportHeading": "Support",
+    "stayTunedHeading": "Stay Tuned",
+    "newsletterText": "Subscribe to get special offers, free giveaways, and once-in-a-lifetime deals.",
+    "emailPlaceholder": "Enter email",
+    "joinButton": "Join",
+    "rightsReserved": "All rights reserved.",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service",
+    "sitemap": "Sitemap",
+    "links": {
+      "fitness": "Fitness & Gym",
+      "apparel": "Sports Apparel",
+      "footwear": "Footwear",
+      "accessories": "Accessories",
+      "trackOrder": "Track Order",
+      "returns": "Returns & Refunds",
+      "shipping": "Shipping Info",
+      "contact": "Contact Us"
+    }
+  },
+  "profileDropdown": {
+    "accountHeading": "Account",
+    "guestUser": "Guest User",
+    "myProfile": "My Profile",
+    "orderHistory": "Order History",
+    "contactSupport": "Contact Support",
+    "signOut": "Sign Out Account",
+    "signInRegister": "Sign In / Register",
+    "logoutAlert": "Logged out successfully!"
   }
 }

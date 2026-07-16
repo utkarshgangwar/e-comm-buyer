@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { useRouter } from "../../i18n/routing";
 import { useParams } from "next/navigation";
 import { LuSearch } from "../../constants/Icons";
+import { useTranslations } from "next-intl";
 
 // Mock database for suggestions
 const MOCK_SUGGESTIONS: Record<string, string[]> = {
@@ -35,6 +36,7 @@ const MOCK_SUGGESTIONS: Record<string, string[]> = {
 type Props = {};
 
 const SearchBar = (props: Props) => {
+  const t = useTranslations("navbar");
   const router = useRouter();
   const currentParams = useParams(); // <-- Captures dynamic route parameters like [slug]
 
@@ -143,15 +145,15 @@ const SearchBar = (props: Props) => {
             value={category}
             onChange={(e) => setCategory(e.target.value)}
           >
-            <option value="All">All</option>
-            <option value="Electronics">Electronics</option>
-            <option value="Fashion">Fashion</option>
-            <option value="Lifestyle">Lifestyle</option>
-            <option value="Fitness">Fitness</option>
-            <option value="Kids">Kids</option>
-            <option value="Men">Men</option>
-            <option value="Women">Women</option>
-            <option value="Sports">Sports</option>
+            <option value="All">{t("categories.all")}</option>
+            <option value="Electronics">{t("categories.electronics")}</option>
+            <option value="Fashion">{t("categories.fashion")}</option>
+            <option value="Lifestyle">{t("categories.lifestyle")}</option>
+            <option value="Fitness">{t("categories.fitness")}</option>
+            <option value="Kids">{t("categories.kids")}</option>
+            <option value="Men">{t("categories.men")}</option>
+            <option value="Women">{t("categories.women")}</option>
+            <option value="Sports">{t("categories.sports")}</option>
           </select>
 
           <div className="pointer-events-none absolute right-1.5 top-1/2 -translate-y-1/2 text-gray-400 block sm:hidden">
@@ -174,7 +176,7 @@ const SearchBar = (props: Props) => {
         {/* Search Input */}
         <input
           type="text"
-          placeholder="Search for products..."
+          placeholder={t("searchPlaceholder")}
           value={query}
           onChange={(e) => {
             setQuery(e.target.value);

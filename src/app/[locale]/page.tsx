@@ -9,25 +9,25 @@ export default async function Home() {
       <main className="p-4 w-full">
         <Cover />
         <div className="grid grid-rows-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 justify-items-center">
-          <GroupCard title={"Wishlist"} />
-          <GroupCard title={"Recently Viewed"} />
-          <GroupCard title={"Deals"} />
-          <GroupCard title={"Because you bought"} />
+          <GroupCard title={"wishlist"} />
+          <GroupCard title={"recentlyViewed"} />
+          <GroupCard title={"deals"} />
+          <GroupCard title={"becauseYouBought"} />
         </div>
         <div className="space-y-6 bg-gray-50 min-h-screen py-6">
           {/* 2. These Carousels will now successfully pass along the Redux context down to ProductCards */}
-          <Carousel heading="Trending Sports Gear" items={dummyProducts} />
+          <Carousel heading="trendingSportsGear" items={dummyProducts} />
           <Carousel
-            heading="New Arrivals"
+            heading="newArrivals"
             items={dummyProducts.slice().reverse()}
           />
-          <Carousel heading="Lifestyle" items={dummyProducts} />
-          <Carousel heading="Electronics" items={dummyProducts} />
-          <Carousel heading="Fitness" items={dummyProducts} />
-          <Carousel heading="Home" items={dummyProducts} />
-          <Carousel heading="Books" items={dummyProducts} />
+          <Carousel heading="lifestyle" items={dummyProducts} />
+          <Carousel heading="electronics" items={dummyProducts} />
+          <Carousel heading="fitness" items={dummyProducts} />
+          <Carousel heading="home" items={dummyProducts} />
+          <Carousel heading="books" items={dummyProducts} />
           <Carousel
-            heading="Your Browsing History"
+            heading="yourBrowsingHistory"
             items={browsedProducts}
             plainImages={true}
             cardPaddingClass="p-0"

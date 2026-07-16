@@ -84,7 +84,7 @@ export default function AuthModal({ isOpen, onClose }: AuthModalProps) {
                 value={formData.name}
                 onChange={handleInputChange}
                 className="w-full text-sm px-4 py-2.5 rounded-xl border border-gray-200 focus:outline-none focus:ring-1 focus:ring-gray-900"
-                placeholder="John Doe"
+                placeholder="Utkarsh Gangwar"
               />
             </div>
           )}
