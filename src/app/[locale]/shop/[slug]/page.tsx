@@ -25,14 +25,18 @@ export default function ShopPage() {
   const filteredAndSortedProducts = browsedProducts
     .filter((product) => {
       // Price range match
+      const productPrice = product.price ?? 0;
       const priceMatch =
-        product.price >= filters.minPrice && product.price <= filters.maxPrice;
+        productPrice >= filters.minPrice && productPrice <= filters.maxPrice;
 
       return priceMatch;
     })
     .sort((a, b) => {
-      if (sortBy === "price-asc") return a.price - b.price;
-      if (sortBy === "price-desc") return b.price - a.price;
+      const priceA = a.price ?? 0;
+      const priceB = b.price ?? 0;
+
+      if (sortBy === "price-asc") return priceA - priceB;
+      if (sortBy === "price-desc") return priceB - priceA;
       if (sortBy === "newest") return Number(b.id) - Number(a.id);
       return 0;
     });
