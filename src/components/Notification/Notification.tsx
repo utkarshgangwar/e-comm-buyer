@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { LuBell } from "../../constants/Icons";
 
 type NotificationItem = {
@@ -36,7 +36,25 @@ const Notification = () => {
   const [notifications, setNotifications] =
     useState<NotificationItem[]>(dummyNotifications);
 
+  // 1. Create a ref to track the notification block container
+  const panelRef = useRef<HTMLDivElement>(null);
+
   const unreadCount = notifications.filter((n) => n.isUnread).length;
+
+  // 2. Add an event listener to handle clicks outside the container safely
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (
+        panelRef.current &&
+        !panelRef.current.contains(event.target as Node)
+      ) {
+        setIsOpen(false);
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   const handleTogglePanel = () => {
     setIsOpen(!isOpen);
@@ -55,7 +73,8 @@ const Notification = () => {
         />
       )}
 
-      <div className="relative inline-block z-50">
+      {/* 3. Attach the panelRef to the relative wrapper anchor wrapper element */}
+      <div className="relative inline-block z-50" ref={panelRef}>
         {/* Trigger Button */}
         <button
           type="button"
@@ -79,7 +98,6 @@ const Notification = () => {
 
         {/* Notification Dropdown Panel */}
         {isOpen && (
-          /* 💡 FIX: Replaced absolute positioning anomalies with viewport-fixed layouts for flawless mobile rendering */
           <div className="fixed inset-x-4 top-16 mx-auto w-auto max-w-md sm:absolute sm:inset-x-auto sm:right-0 sm:top-full sm:mt-3 sm:w-96 sm:max-w-none bg-white rounded-2xl border border-gray-200/80 shadow-2xl overflow-hidden animate-in fade-in slide-in-from-top-4 duration-200 origin-top">
             {/* Header */}
             <div className="px-4 py-3.5 border-b border-gray-100 flex items-center justify-between bg-gray-50/70">

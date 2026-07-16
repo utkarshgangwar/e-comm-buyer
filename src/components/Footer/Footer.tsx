@@ -141,7 +141,16 @@ const Footer = (props: Props) => {
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500">
           {/* Copyright Tag with Mismatch Suppression */}
           <div suppressHydrationWarning>
-            &copy; {currentYear} e-Comm / Krida Inc. {t("rightsReserved")}
+            &copy; {currentYear} e-Comm /{" "}
+            <Link
+              href="https://www.kridastudios.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-orange-500 hover:text-orange-600 underline decoration-2 decoration-orange-500/30 hover:decoration-orange-600 transition-all inline-flex items-center gap-1 group"
+            >
+              Krida Studios
+            </Link>{" "}
+            {t("rightsReserved")}
           </div>
 
           {/* Legal Links Row */}

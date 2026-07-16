@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import { Link } from "@/src/i18n/routing";
 
 type Props = {};
 
@@ -28,8 +29,19 @@ const Cover = (props: Props) => {
             <span className="inline-block bg-orange-500 text-xs font-bold tracking-wider uppercase px-2 py-0.5 rounded">
               Limited Time Only
             </span>
-            <h2 className="text-xl sm:text-3xl lg:text-4xl font-black tracking-tight leading-tight">
-              Upgrade Your Game
+            <h2 className="text-xl sm:text-3xl lg:text-4xl font-black tracking-tight leading-tight text-gray-300">
+              ECOMM BY{" "}
+              <Link
+                href="https://www.gangwar.dev"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-orange-500 hover:text-orange-600 underline decoration-2 decoration-orange-500/30 hover:decoration-orange-600 transition-all inline-flex items-center gap-1 group"
+              >
+                <span>UTKARSH GANGWAR</span>
+                <span className="inline-block transition-transform group-hover:translate-x-1 group-hover:-translate-y-0.5 text-lg sm:text-2xl">
+                  ↗
+                </span>
+              </Link>
             </h2>
             <p className="text-xs sm:text-sm text-gray-200 line-clamp-2">
               Get up to 40% off on premium sports gear, apparel, and training
