@@ -3,6 +3,7 @@ export const Navbar_Dummy_Data = [
   "Fashion",
   "Lifestyle",
   "Fitness",
+  "Books",
   "Kids",
   "Men",
   "Women",

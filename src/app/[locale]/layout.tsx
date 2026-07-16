@@ -5,6 +5,8 @@ import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
+// 1. Import your Store Provider
+import StoreProvider from "@/src/app/StoreProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,8 +19,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "E-Commerse by Utkarsh Gangwar",
-  description: "E-Commerse buyer website",
+  title: "E-Commerce by Utkarsh Gangwar",
+  description: "E-Commerce buyer website",
 };
 
 export default async function RootLayout({
@@ -34,9 +36,12 @@ export default async function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         <NextIntlClientProvider messages={messages}>
-          <Header />
-          {children}
-          <Footer />
+          {/* 2. Wrap everything inside the internationalization provider with Redux */}
+          <StoreProvider>
+            <Header />
+            {children}
+            <Footer />
+          </StoreProvider>
         </NextIntlClientProvider>
       </body>
     </html>
