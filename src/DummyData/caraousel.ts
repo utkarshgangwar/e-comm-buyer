@@ -39,7 +39,7 @@ export const dummyProducts: ProductData[] = [
   },
 ];
 
-export const browsedProducts: CarouselItem[] = [
+export const browsedProducts: ProductData[] = [
   {
     id: 1,
     title: "Krida Elite Cricket Bat",
