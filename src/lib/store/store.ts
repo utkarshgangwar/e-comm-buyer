@@ -1,13 +1,12 @@
 import { configureStore, Middleware, combineReducers } from "@reduxjs/toolkit";
 import cartReducer from "./features/cartSlice";
 import authReducer from "./features/authSlice";
-import userReducer from "./features/userSlice"; // 1. Import your new user slice
+import userReducer from "./features/userSlice";
 
-// Explicitly combine the slices to give TypeScript an unambiguous state blueprint
 const rootReducer = combineReducers({
   cart: cartReducer,
   auth: authReducer,
-  user: userReducer, // 2. Add it to the root reducer combine pipeline
+  user: userReducer,
 });
 
 const loadState = () => {
@@ -26,7 +25,6 @@ const loadState = () => {
       preloadedState.auth = JSON.parse(serializedAuth);
     }
 
-    // 3. Hydrate user slice state from local storage on bootstrap initialization
     const serializedUser = localStorage.getItem("redux_user");
     if (serializedUser) {
       preloadedState.user = JSON.parse(serializedUser);
@@ -60,3 +58,8 @@ export const makeStore = () => {
     devTools: process.env.NODE_ENV !== "production",
   });
 };
+
+// 💡 ADDED TYPE EXPORTS FOR NEXT.JS & REDUX TOOLKIT COMPATIBILITY
+export type AppStore = ReturnType<typeof makeStore>;
+export type RootState = ReturnType<AppStore["getState"]>;
+export type AppDispatch = AppStore["dispatch"];
