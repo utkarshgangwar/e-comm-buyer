@@ -2,7 +2,7 @@ import { configureStore, Middleware, combineReducers } from "@reduxjs/toolkit";
 import cartReducer from "./features/cartSlice";
 import authReducer from "./features/authSlice";
 
-// 🌟 1. Explicitly combine the slices to give TypeScript an unambiguous state blueprint
+// Explicitly combine the slices to give TypeScript an unambiguous state blueprint
 const rootReducer = combineReducers({
   cart: cartReducer,
   auth: authReducer,
@@ -44,7 +44,7 @@ const localStorageMiddleware: Middleware = (store) => (next) => (action) => {
 
 export const makeStore = () => {
   return configureStore({
-    // 🌟 2. Pass the explicitly typed root reducer variable here
+    // Pass the explicitly typed root reducer variable here
     reducer: rootReducer,
     preloadedState: loadState(),
     middleware: (getDefaultMiddleware) =>

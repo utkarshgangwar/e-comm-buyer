@@ -5,13 +5,13 @@ import { Link } from "../../i18n/routing";
 import { useAppDispatch, useAppSelector } from "../../lib/store/hooks";
 import { logout } from "../../lib/store/features/authSlice";
 import { LuUser } from "../../constants/Icons";
-import AuthModal from "@/src/components/AuthModal/AuthModal"; // 🌟 1. Import your AuthModal component
+import AuthModal from "@/src/components/AuthModal/AuthModal"; //  1. Import your AuthModal component
 
 type Props = {};
 
 const NavProfile = (props: Props) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [showAuthModal, setShowAuthModal] = useState(false); // 🌟 2. Add local state to control the modal visibility
+  const [showAuthModal, setShowAuthModal] = useState(false); //  2. Add local state to control the modal visibility
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const dispatch = useAppDispatch();
@@ -115,7 +115,7 @@ const NavProfile = (props: Props) => {
                   Sign Out Account
                 </button>
               ) : (
-                /* 🌟 3. Swapped static link for an interactive modal trigger action */
+                /*  3. Swapped static link for an interactive modal trigger action */
                 <button
                   type="button"
                   onClick={() => {
@@ -132,7 +132,7 @@ const NavProfile = (props: Props) => {
         )}
       </div>
 
-      {/* 🌟 4. Universal AuthModal integration hook */}
+      {/*  4. Universal AuthModal integration hook */}
       <AuthModal
         isOpen={showAuthModal}
         onClose={() => setShowAuthModal(false)}

@@ -162,7 +162,7 @@ export default function CartPage() {
               </span>
             </div>
 
-            {/* 🌟 SWAPPED BUTTON FOR NEXT.JS LINK ROUTER */}
+            {/* SWAPPED BUTTON FOR NEXT.JS LINK ROUTER */}
             <Link
               href="/checkout"
               className="block w-full text-center mt-2 bg-gray-950 text-white py-3 rounded-xl font-semibold hover:bg-gray-800 transition-colors text-sm shadow-sm cursor-pointer"

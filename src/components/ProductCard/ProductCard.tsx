@@ -30,7 +30,7 @@ const ProductCard = ({
   const dispatch = useAppDispatch();
 
   const handleAddToCart = (e: React.MouseEvent) => {
-    e.preventDefault(); // 🌟 Prevents the parent <Link> navigation when clicking 'Add'
+    e.preventDefault(); //  Prevents the parent <Link> navigation when clicking 'Add'
     dispatch(
       addToCart({
         id: item.id,
@@ -40,7 +40,7 @@ const ProductCard = ({
     );
   };
 
-  // 🌟 Construct the query param object safely
+  //  Construct the query param object safely
   const queryParams = new URLSearchParams({
     id: String(item.id),
     title: item.title || "",

@@ -28,10 +28,10 @@ function ProductDetailContent() {
   const price = Number(searchParams.get("price")) || 0;
   const image = searchParams.get("image") || "";
 
-  // 🌟 1. Read the real-time cart items state directly from Redux
+  //  1. Read the real-time cart items state directly from Redux
   const cartItems = useAppSelector((state) => state.cart.items);
 
-  // 🌟 2. Find if this specific product is already inside the Redux cart list
+  //  2. Find if this specific product is already inside the Redux cart list
   const existingCartItem = cartItems.find(
     (item) => String(item.id) === String(id),
   );
@@ -63,7 +63,7 @@ function ProductDetailContent() {
 
   if (!isMounted) return null;
 
-  // 🌟 3. Handle changing quantities through the real store actions
+  //  3. Handle changing quantities through the real store actions
   const handleIncrease = () => {
     dispatch(addToCart({ id, name: title, price }));
   };
@@ -136,7 +136,7 @@ function ProductDetailContent() {
               </ul>
             </div>
 
-            {/* 🌟 4. Fully Synchronized Actions Panel */}
+            {/*  4. Fully Synchronized Actions Panel */}
             <div className="pt-4 space-y-4">
               {currentQuantityInCart > 0 ? (
                 /* State A: Product is already in the cart -> Show inline counter dashboard controls */

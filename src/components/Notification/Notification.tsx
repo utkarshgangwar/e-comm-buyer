@@ -48,7 +48,7 @@ const Notification = () => {
 
   return (
     <>
-      {/* 🌟 1. BACKGROUND OVERLAY & BLUR (Only rendered when open) */}
+      {/*  1. BACKGROUND OVERLAY & BLUR (Only rendered when open) */}
       {isOpen && (
         <div
           onClick={() => setIsOpen(false)}

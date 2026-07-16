@@ -47,7 +47,7 @@ export const cartSlice = createSlice({
       state.totalAmount = calculateTotal(state.items);
     },
 
-    // 🌟 ADDED BACK: This handles the plus/minus buttons on your Cart Page
+    //  ADDED BACK: This handles the plus/minus buttons on your Cart Page
     updateQuantity: (
       state,
       action: PayloadAction<{ id: string | number; quantity: number }>,
@@ -66,7 +66,7 @@ export const cartSlice = createSlice({
   },
 });
 
-// 🌟 Added updateQuantity to the exports list here
+//  Added updateQuantity to the exports list here
 export const {
   hydrateCart,
   addToCart,

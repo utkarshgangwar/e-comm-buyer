@@ -17,7 +17,7 @@ export default function ProfilePage() {
   const [activeTab, setActiveTab] = useState<TabType>("info");
   const [isMounted, setIsMounted] = useState(false);
 
-  // 🌟 1. Added Editing States
+  //  1. Added Editing States
   const [isEditing, setIsEditing] = useState(false);
 
   useEffect(() => {
@@ -75,7 +75,7 @@ export default function ProfilePage() {
     setEditForm((prev) => ({ ...prev, [name]: value }));
   };
 
-  // 🌟 Save changes back to our main user object state
+  //  Save changes back to our main user object state
   const handleSaveChanges = (e: React.FormEvent) => {
     e.preventDefault();
     setUser({
@@ -173,7 +173,7 @@ export default function ProfilePage() {
                 )}
               </div>
 
-              {/* 🌟 FORM COMPONENT CONDITIONAL FOR EDITING */}
+              {/*  FORM COMPONENT CONDITIONAL FOR EDITING */}
               <form onSubmit={handleSaveChanges} className="space-y-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>

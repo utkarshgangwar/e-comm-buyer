@@ -36,7 +36,7 @@ const Header = (props: Props) => {
               <PinCode />
             </div>
 
-            {/* 🌟 Mobile Action Group (Always Visible on Mobile/Tablet) */}
+            {/*  Mobile Action Group (Always Visible on Mobile/Tablet) */}
             <div className="flex lg:hidden items-center gap-1.5 sm:gap-3">
               {/* Added Notification here so mobile shoppers can check updates instantly */}
               <Notification />

@@ -81,7 +81,7 @@ export default function CheckoutPage() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    // 🌟 Gatekeeper: If unauthenticated, halt form submission and slide up authentication modal
+    // Gatekeeper: If unauthenticated, halt form submission and slide up authentication modal
     if (!isAuthenticated) {
       setShowLoginModal(true);
       return;
@@ -315,7 +315,7 @@ export default function CheckoutPage() {
         </form>
       </div>
 
-      {/* 🌟 2. Render the modular login/signup AuthModal component state wrapper */}
+      {/* 2. Render the modular login/signup AuthModal component state wrapper */}
       <AuthModal
         isOpen={showLoginModal}
         onClose={() => setShowLoginModal(false)}
