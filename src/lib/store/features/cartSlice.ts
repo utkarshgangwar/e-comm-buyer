@@ -5,6 +5,7 @@ export interface CartItem {
   name: string;
   price: number;
   quantity: number;
+  image?: string; // 💡 ADDED: Optional image support for product catalog visuals
 }
 
 export interface CartState {
@@ -32,7 +33,7 @@ export const cartSlice = createSlice({
 
     addToCart: (state, action: PayloadAction<Omit<CartItem, "quantity">>) => {
       const existingItem = state.items.find(
-        (item) => item.id === action.payload.id,
+        (item) => String(item.id) === String(action.payload.id),
       );
       if (existingItem) {
         existingItem.quantity += 1;
@@ -43,16 +44,19 @@ export const cartSlice = createSlice({
     },
 
     removeFromCart: (state, action: PayloadAction<string | number>) => {
-      state.items = state.items.filter((item) => item.id !== action.payload);
+      state.items = state.items.filter(
+        (item) => String(item.id) !== String(action.payload),
+      );
       state.totalAmount = calculateTotal(state.items);
     },
 
-    //  ADDED BACK: This handles the plus/minus buttons on your Cart Page
     updateQuantity: (
       state,
       action: PayloadAction<{ id: string | number; quantity: number }>,
     ) => {
-      const item = state.items.find((i) => i.id === action.payload.id);
+      const item = state.items.find(
+        (i) => String(i.id) === String(action.payload.id),
+      );
       if (item && action.payload.quantity > 0) {
         item.quantity = action.payload.quantity;
       }
@@ -66,7 +70,6 @@ export const cartSlice = createSlice({
   },
 });
 
-//  Added updateQuantity to the exports list here
 export const {
   hydrateCart,
   addToCart,
@@ -74,4 +77,5 @@ export const {
   updateQuantity,
   clearCart,
 } = cartSlice.actions;
+
 export default cartSlice.reducer;

@@ -39,6 +39,7 @@ const ProductCard = ({
         id: item.id,
         name: item.title || "Unnamed Product",
         price: item.price || 0,
+        image: item.image, // 💡 FIX: Included the image payload parameters to persist product thumbnails in the Redux store
       }),
     );
   };

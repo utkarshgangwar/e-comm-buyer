@@ -7,7 +7,7 @@ import {
   removeFromCart,
   updateQuantity,
   clearCart,
-} from "@/src/lib/store/features/cartSlice"; // Explicit path fixed
+} from "@/src/lib/store/features/cartSlice";
 
 export default function CartPage() {
   const cartItems = useAppSelector((state) => state.cart.items);
@@ -73,6 +73,21 @@ export default function CartPage() {
                 key={item.id}
                 className="flex items-center bg-white p-4 sm:p-5 rounded-2xl border border-gray-200 shadow-sm gap-4"
               >
+                {/* 💡 PRODUCT IMAGE BLOCK */}
+                <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gray-50 rounded-xl overflow-hidden relative border border-gray-100 flex-shrink-0">
+                  {item.image ? (
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center text-[10px] text-gray-400 font-medium bg-gray-100 text-center px-1">
+                      No Image
+                    </div>
+                  )}
+                </div>
+
                 {/* Product Info */}
                 <div className="flex-1 min-w-0">
                   <h3 className="text-sm font-bold text-gray-900 truncate">
@@ -84,7 +99,7 @@ export default function CartPage() {
                 </div>
 
                 {/* Quantity Controls */}
-                <div className="flex items-center border border-gray-200 rounded-lg bg-gray-50">
+                <div className="flex items-center border border-gray-200 rounded-lg bg-gray-50 flex-shrink-0">
                   <button
                     onClick={() =>
                       dispatch(
@@ -118,7 +133,7 @@ export default function CartPage() {
                 </div>
 
                 {/* Subtotal & Delete */}
-                <div className="text-right flex flex-col items-end gap-1">
+                <div className="text-right flex flex-col items-end gap-1 flex-shrink-0 min-w-[70px]">
                   <span className="text-sm font-extrabold text-gray-900">
                     ₹{(item.price * item.quantity).toLocaleString("en-IN")}
                   </span>
@@ -162,7 +177,6 @@ export default function CartPage() {
               </span>
             </div>
 
-            {/* SWAPPED BUTTON FOR NEXT.JS LINK ROUTER */}
             <Link
               href="/checkout"
               className="block w-full text-center mt-2 bg-gray-950 text-white py-3 rounded-xl font-semibold hover:bg-gray-800 transition-colors text-sm shadow-sm cursor-pointer"

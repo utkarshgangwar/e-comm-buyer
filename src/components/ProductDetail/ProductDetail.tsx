@@ -7,7 +7,7 @@ import {
   addToCart,
   updateQuantity,
   removeFromCart,
-} from "@/src/lib/store/features/cartSlice"; // Explicit path fixed
+} from "@/src/lib/store/features/cartSlice";
 import Link from "next/link";
 
 interface Review {
@@ -28,10 +28,10 @@ function ProductDetailContent() {
   const price = Number(searchParams.get("price")) || 0;
   const image = searchParams.get("image") || "";
 
-  //  1. Read the real-time cart items state directly from Redux
+  // Read the real-time cart items state directly from Redux
   const cartItems = useAppSelector((state) => state.cart.items);
 
-  //  2. Find if this specific product is already inside the Redux cart list
+  // Find if this specific product is already inside the Redux cart list
   const existingCartItem = cartItems.find(
     (item) => String(item.id) === String(id),
   );
@@ -63,17 +63,15 @@ function ProductDetailContent() {
 
   if (!isMounted) return null;
 
-  //  3. Handle changing quantities through the real store actions
+  // 💡 FIX: Extended the payload payload to append the product asset image configuration parameter
   const handleIncrease = () => {
-    dispatch(addToCart({ id, name: title, price }));
+    dispatch(addToCart({ id, name: title, price, image }));
   };
 
   const handleDecrease = () => {
     if (currentQuantityInCart === 1) {
-      // If reducing from 1 to 0, completely drop it out of the cart
       dispatch(removeFromCart(id));
     } else if (currentQuantityInCart > 1) {
-      // Otherwise decrement by passing the updated count value
       dispatch(updateQuantity({ id, quantity: currentQuantityInCart - 1 }));
     }
   };
@@ -136,10 +134,9 @@ function ProductDetailContent() {
               </ul>
             </div>
 
-            {/*  4. Fully Synchronized Actions Panel */}
+            {/* Fully Synchronized Actions Panel */}
             <div className="pt-4 space-y-4">
               {currentQuantityInCart > 0 ? (
-                /* State A: Product is already in the cart -> Show inline counter dashboard controls */
                 <div className="space-y-3">
                   <div className="flex items-center gap-3">
                     <span className="text-xs font-bold text-gray-500 uppercase tracking-wider">
@@ -171,14 +168,12 @@ function ProductDetailContent() {
                     </span>
                   </div>
 
-                  {/* Subtle helper prompt */}
                   <p className="text-[11px] font-medium text-green-600 bg-green-50 p-2 rounded-lg text-center border border-green-100">
                     ✓ This item is in your cart. You can manage checkout
                     quantities here.
                   </p>
                 </div>
               ) : (
-                /* State B: Product is not in the cart -> Show primary CTA add button */
                 <button
                   type="button"
                   onClick={handleIncrease}
