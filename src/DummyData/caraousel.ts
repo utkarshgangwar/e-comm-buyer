@@ -1,6 +1,6 @@
-import { CarouselItem } from "../components/Carousel/page";
+import { ProductData } from "../components/ProductCard/ProductCard";
 
-export const dummyProducts: CarouselItem[] = [
+export const dummyProducts: ProductData[] = [
   {
     id: 1,
     title: "Krida Elite Cricket Bat",
